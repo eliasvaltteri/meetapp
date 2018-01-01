@@ -27,6 +27,9 @@ app.use(bodyParser.urlencoded({
 }));
 
 // routes
-require('./routes/routes.js')(app, passport);
+require('./routes/api.js')(app, passport);
 
-module.exports = app;
+// set up app to listen for port
+var server = app.listen(3000, function() {
+  console.log('meetApp running and listening on port ' + server.address().port + ' !');
+});

@@ -1,5 +1,4 @@
 var app = angular.module("meetApp", ["ngRoute"]);
-
 app.config(function($routeProvider) {
   $routeProvider
   .when('/', {

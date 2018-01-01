@@ -1,3 +1,5 @@
+<script type="text/javascript" src="//maps.google.com/maps/api/js?sensor=false"></script>
+
 <div class="col-md-4">
 	<div class="eventphoto">
 		<img src="../assets/img/party.png">
@@ -48,3 +50,24 @@
 
 	</div>
 </div>
+
+<script type="text/javascript">
+	$("#checkingAddress").click(checkGeocode);
+
+	function checkGeocode(){
+		var addr = document.getElementById("location");
+        // Get geocoder instance
+        var geocoder = new google.maps.Geocoder();
+
+        // Geocode the address
+        geocoder.geocode({'address': addr.value}, function(results, status){
+        	if (status === google.maps.GeocoderStatus.OK && results.length > 0) {
+        		alert('looks good')
+                // set it to the correct, formatted address if it's valid
+                addr.value = results[0].formatted_address;;
+
+        // show an error if it's not
+    }else alert("Invalid address");
+});
+    };
+</script>

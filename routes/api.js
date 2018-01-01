@@ -17,7 +17,7 @@ module.exports = function(app, passport) {
     res.send(req.isAuthenticated() ? req.user : '0');
   });
 
-  // signup
+  // new event
   app.post("/create", function(req, res) {
     db.User.findOne({
       username: req.body.username
