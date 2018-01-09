@@ -3,7 +3,7 @@
 @import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
 @import url('navbar.css');
 @import url('fonts.css');
-html { position: relative; overflow-x: hidden; }
+html { position: relative; overflow-x: hidden !important; }
 body {
 	font-family: 'Open Sans', FontAwesome, Arial;
 	background: url('img/bg.jpg') no-repeat center center fixed;
@@ -193,8 +193,7 @@ input[type=password]:-ms-input-placeholder { 		color: white; font-weight: bold; 
 	}
 	.no-tpadding { padding-top: 40px !important; }
 	hr.light { display: none; }
-
-	#chatroom { font-size: 14px; }
+	.corner-logo { top: -60px !important; }
 }
 
 /* video style */
