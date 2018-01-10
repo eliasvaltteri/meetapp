@@ -1,10 +1,11 @@
 <!-- load script for google maps goecoding -->
-<script src="//maps.google.com/maps/api/js"></script>
+<script src="//maps.google.com/maps/api/js?sensor=false"></script>
 
 <!-- event image -->
-<div id="photoElem" class="col-md-4" >
-	<div class="eventphoto">
-		<img ng-src="{{ eventPhotoUrl }}">
+<div id="photoElem" class="col-md-4">
+	<div class="eventphoto text-center" style="background:rgba(255,255,255,.3);">
+		<h2 class="no-photo" ng-show="!eventPhotoUrl">No photo</h2>
+		<img ng-src="{{eventPhotoUrl}}" ng-show="{{eventPhotoUrl}}"" style="object-fit: cover;">
 	</div>
 </div>
 
@@ -19,7 +20,7 @@
 		</p>
 		<p style="display:flex;align-items:center;">
 			<span class="icon last">&#xf041;</span>{{ currentUser.location }}
-			<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#mapModal" style="margin-left:auto;margin-right:1em;" ng-show="checkAddr(currentUser.location)">
+			<button id="mapBtn" type="button" class="btn btn-danger" data-toggle="modal" data-target="#mapModal" style="margin-left:auto;margin-right:1em;" ng-show="checkAddr(currentUser.location)">
 				Open Map
 			</button>
 		</p>

@@ -29,10 +29,11 @@ app.use(bodyParser.urlencoded({
 // routes
 require('./routes/api.js')(app, passport);
 
-// websocket config
-var ws = require('./config/ws');
-
 // set up app to listen for port
 var server = app.listen(80, function() {
   console.log('meetApp running and listening on port ' + server.address().port + ' !');
 });
+
+// websocket config
+var ws = require('./config/ws');
+module.exports = server;

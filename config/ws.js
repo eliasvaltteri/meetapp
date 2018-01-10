@@ -1,6 +1,6 @@
-// basic config of the ws
 var WebSocketServer = require('ws').Server,
-wss = new WebSocketServer({port: 40510});
+server = require('../app');
+wss = new WebSocketServer({ port: 8080 });
 
 // load up the message model
 var Message = require('../models/message');
@@ -21,6 +21,8 @@ wss.sendToSender = (data) => {
 
 // handle connections
 wss.on('connection', (ws) => {
+
+	console.log("New user connected!");
 
 	// handle messages by their types
 	ws.on('message', function(msg) {
@@ -54,5 +56,5 @@ wss.on('connection', (ws) => {
 	});
 
 	// prevent the app from crashing on error
-	ws.on('error', () => ws.terminate());
+	ws.on('error', () => { console.log("Closed"); ws.terminate(); });
 });

@@ -33,7 +33,7 @@ module.exports = function(app, passport) {
         newUser.date = req.body.date;
         newUser.location = req.body.location;
         newUser.description = req.body.description;
-        newUser.imageurl = req.body.imageurl;
+        newUser.photourl = req.body.photourl;
         newUser.save(function(err, user) {
           req.login(user, function(err) {
             if (err) {

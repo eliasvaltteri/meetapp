@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>meetApp</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="icon" href="assets/img/m.png" type="image/x-icon"/>
+	<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+	<!-- navigation begins -->
+	<div class="container no-padding">
+		<nav class="navbar navbar-default">
+			<div class="navbar-header">
+
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>                        
+				</button>
+			</div>
+			<div class="collapse navbar-collapse" id="myNavbar">
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="#"><span class="glyphicon glyphicon-home"></span> Home</a></li>
+					<li class="dropdown">
+						<a class="dropdown-toggle" data-toggle="dropdown" href="#">
+							<span class="glyphicon glyphicon-log-in"></span> Login <span class="caret"></span></a>
+							<ul class="dropdown-menu login-drop">
+								<form class="form">
+									<div class="form-group">
+										<input type="text" class="form-control" placeholder="&#xf054; Event name" name="username">
+									</div>
+									<div class="form-group">
+										<input type="password" class="form-control" placeholder="&#xf054; Password" name="password">
+									</div>
+									<div class="text-right">
+										<button type="submit" class="btn btn-danger"><i class="fa fa-sign-in" aria-hidden="true"></i> Login</button>
+									</div>
+								</form>
+							</ul>
+						</li>
+						<li><a href="#"><span class="glyphicon glyphicon-edit"></span> Create event</a></li>
+					</ul>
+				</div><hr class="light" style="width:100%;float:right;border-radius:5px;">
+			</nav>
+		</div>
+		<!-- navigation ends -->
+
+		<!-- main content starts -->
+		<div class="container">
+			<div class="row tile tile-big no-radius-top">
+
+				<div class="col-md-6">
+					<h3 class="text-center">Words of advice</h3>
+					<p id="tw">
+						Here you can create a new event. But first have a few guidelines.
+					</p>
+					<div class="fadein4">
+						<ul class="gl">
+							<li>Pick a unique and rememberable event name</li>
+							<li>Same goes for the password. And do not forget it!</li>
+						</ul>
+					</div>
+				</div>
+
+				<div class="col-md-6">
+					<h3 class="text-center">Create new event</h3>
+					<p>
+						<form>
+							<div class="input-group">
+								<span class="input-group-addon">&#xf044;</span>
+								<input type="text" class="form-control" placeholder="Event name" name="username">
+							</div>
+							<div class="input-group">
+								<span class="input-group-addon">&#xf023;</span>
+								<input type="text" class="form-control" placeholder="Password" name="password">
+							</div>
+							<div class="input-group">
+								<span class="input-group-addon">&#xf023;</span>
+								<input type="text" class="form-control" placeholder="Confirm password" name="password2">
+							</div>
+							<div class="input-group">
+								<span class="input-group-addon">&#xf073;</span>
+								<input type="text" class="form-control" placeholder="Date (dd/mm/yyyy)" name="eventdate">
+							</div>
+							<div class="input-group">
+								<span class="input-group-addon">&#xf041;</span>
+								<input type="text" class="form-control" placeholder="Location" name="location">
+							</div>
+							<div class="resize_wrapper input-group">
+								<span class="input-group-addon">&#xf10e;</span>
+								<textarea type="text" class="form-control txtarea" placeholder="Description" name="description"></textarea>
+							</div>
+
+							<div class="form-inline cbox">
+								<span class="cbox">
+									<label class="cbox">
+										<input type="checkbox" class="cbox" name="confirm" value="yes"/>
+										<span class="cbox-target"></span> Click to confirm
+									</label>
+								</span>
+								<button type="submit" class="btn btn-danger fl-right">&#xf046; Create</button>
+							</div>
+						</form>
+					</p>
+				</div>
+			</div>
+		</div>
+		<!-- main content ends -->
+
+		<div class="corner-logo">
+			<a class="navbar-brand" href="#"><img id="logo" src="assets/img/ma.png"></a>
+		</div>
+
+		<!-- 
+		<video id="bgvid" playsinline muted loop>
+			<source src="assets/vid/waste.mp4" type="video/mp4" />
+		</video>
+		<button class="pause btn btn-danger">Play bg video</button>
+		 -->
+
+		<!-- scripts -->
+		<script src="assets/js/scripts.js"></script>
+		<script src="assets/js/video.js"></script>
+		<script src="http://code.jquery.com/jquery-3.2.1.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+	</body>
+	</html>

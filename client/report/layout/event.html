@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>meetApp</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- styles -->
+	<link rel="icon" href="assets/img/m.png" type="image/x-icon"/>
+	<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+	<!-- navigation begins -->
+	<div class="container no-padding">
+		<nav class="navbar navbar-default">
+			<div class="navbar-header">
+
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>                        
+				</button>
+			</div>
+			<div class="collapse navbar-collapse" id="myNavbar">
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="#"><span class="glyphicon glyphicon-home"></span> Home</a></li>
+					<li class="dropdown">
+						<a class="dropdown-toggle" data-toggle="dropdown" href="#">
+							<span class="glyphicon glyphicon-log-in"></span> Login <span class="caret"></span></a>
+							<ul class="dropdown-menu login-drop">
+								<form class="form">
+									<div class="form-group">
+										<input type="text" class="form-control" placeholder="&#xf054; Event name" name="username">
+									</div>
+									<div class="form-group">
+										<input type="password" class="form-control" placeholder="&#xf054; Password" name="password">
+									</div>
+									<div class="text-right">
+										<button type="submit" class="btn btn-danger"><i class="fa fa-sign-in" aria-hidden="true"></i> Login</button>
+									</div>
+								</form>
+							</ul>
+						</li>
+						<li><a href="#"><span class="glyphicon glyphicon-edit"></span> Create event</a></li>
+					</ul>
+				</div><hr class="light" style="width:100%;float:right;border-radius:5px;">
+			</nav>
+		</div>
+		<!-- navigation ends -->
+
+		<!-- main content starts -->
+		<div class="container">
+			<div class="row tile tile-big no-radius-top desktop-padding">
+				<!-- your content goes here -->
+
+				<div class="loggedin-info text-center">
+					<p>You are now logged into the event shown below.</p>
+				</div>
+
+				<div class="col-md-4">
+					<div class="eventphoto">
+						<img src="assets/img/party.png">
+					</div>
+				</div>
+				<div class="col-md-8">
+					<div class="eventinfo">
+						<h3><span class="icon first">&#xf24a;</span>New years party</h3>
+						<p><span class="icon middle">&#xf073;</span>31 December 2017</p>
+						<p><span class="icon last">&#xf041;</span>Key West, Florida, United States</p>
+					</div>
+				</div>
+
+				<div class="col-md-12">
+					<div class="eventdesc">
+						<span class="icon desc">&#xf10e;</span>
+						<p>
+							Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+							tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+							quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+							consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+							cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+							proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+						</p>
+					</div>
+				</div>
+
+				<!-- your content ends here -->
+			</div>
+		</div>
+		<!-- main content ends -->
+
+		<!-- top left logo -->
+		<div class="corner-logo">
+			<a class="navbar-brand" href="#"><img id="logo" src="assets/img/ma.png"></a>
+		</div>
+
+		<!-- scripts -->
+		<script src="scripts.js"></script>
+		<script src="http://code.jquery.com/jquery-3.2.1.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+	</body>
+	</html>

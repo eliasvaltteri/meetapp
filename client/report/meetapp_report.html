@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>meetApp Report</title>
+<style type="text/css">
+body {
+	background-image: url(bg.jpg);
+	background-repeat: repeat-y;
+	text-align: center;
+	color: rgba(255,255,255,1);
+	font-size: 16px;
+	-webkit-box-shadow: 50px 25px rgba(0,0,0,1.00);
+	box-shadow: 50px 25px rgba(0,0,0,1.00);
+}
+</style>
+</head>
+
+<body>
+<table width="861" height="505" border="1.5" align="center" cellpadding="1">
+  <tbody>
+    <tr align="center" style="text-align: center">
+      <td width="851" valign="top"><p style="font-size: 16px; font-weight: bold;">Description of our App</p>
+      <p>meetApp is a cross platform Web application created to be hip, user friendly, and easily accessible. The app serves as a common place for individuals to connect to see events happening around them. Users can login by creating a username and password. Once this is complete users will be able to create an event that can be sent via to their friends via login and password, so that they can see the details and description such as the time, place, and location. Users can also communicate via a chat log if needed to ask questions or to get more information about the event itself. </p>
+      <p><img src="scr1.png" width="441" height="246" alt=""/></p>
+      <p>meetApp is designed to be a convenience for people needing to organize an event with any number of attendees by being able to connect in one central location. With meetApp, user can also edit events already created in case there is a sudden change of details. meetApp truly gives users the power to free express their events and easily allows there invitees to see what is going on. We also give users simply instructions on what to do when creating an event. They are quite simple, because we truly want to give users the freedom express their event idea and be able to personalize it in whatever way they see fit. An example of this would be choosing a picture that represents the event that one would be hosting. The true functionally of meetApp is to connect people using technology to make our lives simply.</p>
+      <p><img src="scr2.png" width="441" height="216" alt=""/></p></td>
+    </tr>
+    <tr>
+      <td align="center"><p style="font-size: 100%; font-weight: bold;">App Architecture</p>
+        <p>Components of meetApp</p>
+        <p>In short, all the components the application holds are:</p>
+        <p style="font-style: italic">The core JS components (nodejs files such as app.js, models and config files)</p>
+        <p style="font-style: italic">Front-end JS files (angularjs, its&rsquo; config, controllers and services) </p>
+        <p style="font-style: italic">HTML-pages and their assets (CSS and JS scripts, images, fonts etc)</p>
+        <p style="font-style: normal; font-weight: bold; font-size: 16px;">MVC Pattern</p>
+        <p>The files and the folder constructing the architecture of the whole application are defined by basic principles of the Model-View-Controller design. Code, files and folders are kept separately to keep a certain clarity as the development goes further. The whole project is easier to approach by someone new to the project as the source code is kept readable by applying the principles at issue.<br>
+                  If we look at our project, we can see that the main functionality that bundles everything together is the <em>app.js</em> file. Models (in our case the schemas) and their database configurations are in the models-folder and everything to do with views are in the client-folder (HTML, CSS angular and scripts).</p></td>
+    </tr>
+    <tr>
+      <td align="center" style="font-size: 14px;"><p><span style="font-size: 16px; font-weight: bold;">Technologies that We Used</span></p>
+      <p style="font-style: normal; font-weight: bold; font-size: 14px;"> HTML5 Technology</p>
+      <p>Web Sockets - In regards to web sockets, we choose to include it as a client chat in order for users to comment about the events that they are invited to. With the client chat, users are able to see comments about the event without refreshing their webpage. This functions helps keep our users updated.   </p>
+      <p style="font-style: normal; font-weight: bold; font-size: 14px;">HTML5 API's</p>
+      <p>New input types - One HTML5 API that we used is the new input types. We choose to incorporate the date input type and the time input type with our web app. This serves as allowing the user to show a date and time so that invitees can show up properly.</p>
+      <p>Geolocation - Another HTML5 API we choose add to the web app was the Geolocation API. We decided that this would be a great API to have simply because users need to know a place that the event is happening at.
+</p>
+     <p style="font-style: normal; font-weight: bold; font-size: 14px;">AJAX </p>
+       <p> The applications front-end communicates with the back-end API with AJAX-based request. For example, all the application’s most vital functions use http-requests with a JSON-objects as parameters. This goes along with using data request handling and queries from database. As mentioned above, the front-end and backend communicate via http-requests. The API processes the requests mostly by querying its database. With a combination of multiple modules (such as mongoose and passport) and their data request handling and database querying functions, the application constructs its very core.</p>
+     
+      <p style="font-style: normal; font-weight: bold; font-size: 14px;">A Problem that Occurred </p>
+      <p> One of the main problems we encountered was trying to implement our web socket chat box. We found a source code for web socket, and by using socket.io and node.js, the chat application worked well. But when we tried to implement the codes to our app, we tried to put the script separately and somehow it didn&rsquo;t work. At the end, we used AngularJS Controller and it worked well.</p>
+      </td>
+    </tr>
+    <tr>
+      <td><a href="readme.txt">Readme.txt</a></td>
+    </tr>
+  </tbody>
+</table>
+</body>
+</html>

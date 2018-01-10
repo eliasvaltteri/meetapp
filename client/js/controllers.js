@@ -6,22 +6,22 @@ app.controller("NavCtrl", function($rootScope, $scope, $http, $location) {
 
   // login post request and handling success/failure
   $scope.login = function(user) {
-  	$http.post('/login', user)
-  	.success(function(response) {
-  		$rootScope.currentUser = response;
-  		$location.url("/event");
-  	})
-  	.error(function (error, status){
-  		$scope.loginError = "Wrong event name/password!";
-  	});
+    $http.post('/login', user)
+    .success(function(response) {
+      $rootScope.currentUser = response;
+      $location.url("/event");
+    })
+    .error(function (error, status){
+      $scope.loginError = "Wrong event name/password!";
+    });
   }
   // logout post request
   $scope.logout = function() {
-  	$http.post("/logout")
-  	.success(function() {
-  		$rootScope.currentUser = null;
-  		$location.url("/");
-  	});
+    $http.post("/logout")
+    .success(function() {
+      $rootScope.currentUser = null;
+      $location.url("/");
+    });
   }
 });
 
@@ -36,21 +36,21 @@ app.controller("CreateCtrl", function($scope, $http, $rootScope, $location, $q) 
     // enable create button if true
     // otwherwise disable button
     if (event.target.checked) {
-    	$scope.createBtnState = true;
+      $scope.createBtnState = true;
     } else {
-    	$scope.createBtnState = false;
+      $scope.createBtnState = false;
     }
 };
 
   // check photo url for validity
   var isImage = (url) => {
-  	let deferred = $q.defer();
-  	let s = document.createElement("IMG");
-  	s.src = url;
-  	s.type = "image";
-  	s.onerror = () => { deferred.resolve(false); };
-  	s.onload  = () => { deferred.resolve(true) };
-  	return deferred.promise;
+    let deferred = $q.defer();
+    let s = document.createElement("IMG");
+    s.src = url;
+    s.type = "image";
+    s.onerror = () => { deferred.resolve(false); };
+    s.onload  = () => { deferred.resolve(true) };
+    return deferred.promise;
   };
 
   // create a new event
@@ -64,21 +64,21 @@ app.controller("CreateCtrl", function($scope, $http, $rootScope, $location, $q) 
     if (user.password == user.password2) {
       // check the photo validity
       isImage(user.photourl).then(function(val) {
-      	if (!val) {
-      		$scope.createError = "Invalid photo url!";
-      		return;
-      	}
+        if (!val) {
+          $scope.createError = "Invalid photo url!";
+          return;
+        }
       });
       // post the request to API
       $http.post('/create', user)
       // if succressful, redirect to event page
       .success(function(user) {
-      	$rootScope.currentUser = user;
-      	$location.url("/event");
+        $rootScope.currentUser = user;
+        $location.url("/event");
       })
       // otherwise prompt error and type
       .error(function (error, status){
-      	$scope.createError = "Something went wrong!";
+        $scope.createError = "Something went wrong!";
       });
   } else {
       $scope.createError = "Passwords don't match!"; // if passwords differ
@@ -88,24 +88,26 @@ app.controller("CreateCtrl", function($scope, $http, $rootScope, $location, $q) 
 
 // controller for event-page and its' components
 app.controller('EventCtrl', ['$scope', '$sce', '$rootScope',
-	function($scope, $sce, $rootScope) {
+  function($scope, $sce, $rootScope) {
 
   // trust the image resource so it can be shown
   $scope.eventPhotoUrl = $sce.trustAsResourceUrl($rootScope.currentUser.photourl);
 
+  /*
   // hide photo element if there is no url
   if (!$rootScope.currentUser.photourl) {
-  	$("#photoElem").hide();
-  	$("#infoElem").attr('class', 'col-md-12');
+    $("#photoElem").hide();
+    $("#infoElem").attr('class', 'col-md-12');
   }
+  */
 
   // parse date
   $scope.formatDate = function(date){
-  	var dateOut = new Date(date);
-  	return dateOut;
+    var dateOut = new Date(date);
+    return dateOut;
   };
 
-//	google maps
+//  google maps
 //===========================================================================
 
   // geocoding to check validity of address
@@ -114,7 +116,7 @@ app.controller('EventCtrl', ['$scope', '$sce', '$rootScope',
       var geocoder = new google.maps.Geocoder();
       // geocode the address
       geocoder.geocode({'address': address}, function(results, status) {
-      	if (status === google.maps.GeocoderStatus.OK && results.length > 0) {
+        if (status === google.maps.GeocoderStatus.OK && results.length > 0) {
             // return true if affress is valid
             return true;
             // return false if it's not
@@ -134,43 +136,41 @@ app.controller('EventCtrl', ['$scope', '$sce', '$rootScope',
   // initialize this for later use
   var eventName = $rootScope.currentUser.username;
 
-  var loc = window.location.hostname;
-
   // initialize socket
-  var ws = new WebSocket("ws://eliasvaltteri.tk:40510/");
+  var ws = new WebSocket("ws://" + window.location.hostname + ":8080");
 
   // once connected, fetch current events messages
   ws.onopen = function () {
-  	ws.send(JSON.stringify({
-  		type: 'loadMsg',
-  		event: eventName
-  	}));
+    ws.send(JSON.stringify({
+      type: 'loadMsg',
+      event: eventName
+    }));
   };
 
   // handle username setting and message sending
   $('form').submit(function() {
-  	var name = $('#name').val() ? $('#name').val() : 'Guest';
-  	$('#submitname').hide();
-  	$("#name").prop('disabled', true);
-  	ws.send(JSON.stringify({
-  		type: 'newMsg',
-  		event: eventName,
-  		name: name,
-  		message: $('#message').val()
-  	}));
-  	$('#message').focus();
-  	$('#message').val('');
-  	return false;
+    var name = $('#name').val() ? $('#name').val() : 'Guest';
+    $('#submitname').hide();
+    $("#name").prop('disabled', true);
+    ws.send(JSON.stringify({
+      type: 'newMsg',
+      event: eventName,
+      name: name,
+      message: $('#message').val()
+    }));
+    $('#message').focus();
+    $('#message').val('');
+    return false;
   });
 
   // listen for incoming messages, add them and scroll to bottom of element
   ws.onmessage = function(data) {
-  	$('#messages').append(data.data);
-  	$("#messages").scrollTop($("#messages")[0].scrollHeight);
+    $('#messages').append(data.data);
+    $("#messages").scrollTop($("#messages")[0].scrollHeight);
   };
 
   // show errors
   ws.onerror = function(evt) {
-  	$('#messages').append('<span style="color: red;">ERROR:</span> ' + evt.data);
+    $('#messages').append('<span style="color: red;">ERROR:</span> ' + evt.data);
   };
 }]);
