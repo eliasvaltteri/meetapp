@@ -137,7 +137,7 @@ app.controller('EventCtrl', ['$scope', '$sce', '$rootScope',
   var eventName = $rootScope.currentUser.username;
 
   // initialize socket
-  var ws = new WebSocket("ws://" + window.location.hostname + ":8080");
+  var ws = new WebSocket("ws://" + window.location.hostname);
 
   // once connected, fetch current events messages
   ws.onopen = function () {

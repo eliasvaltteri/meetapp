@@ -1,6 +1,5 @@
-var WebSocketServer = require('ws').Server,
-server = require('../app');
-wss = new WebSocketServer({ port: 8080 });
+// 
+var wss = require('../app');
 
 // load up the message model
 var Message = require('../models/message');
@@ -9,13 +8,6 @@ var Message = require('../models/message');
 wss.broadcast = (data) => {
 	wss.clients.forEach(function(client) {
 		client.send(data);
-	});
-};
-
-// function to broadcast only to sender
-wss.sendToSender = (data) => {
-	wss.clients.forEach(function(client) {
-		if (client == wss) client.send(data);
 	});
 };
 

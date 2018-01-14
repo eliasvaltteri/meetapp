@@ -1,7 +1,10 @@
-// set up express
-var express = require('express')
-var app = express()
-var http = require('http').Server(app)
+const express = require('express')
+const http = require('http')
+const url = require('url')
+const WebSocket = require('ws')
+const app = express()
+
+// express config
 app.use(express.static(__dirname + '/client'))
 
 // set up passport and load config
@@ -31,11 +34,13 @@ app.use(bodyParser.urlencoded({
 // routes
 require('./routes/api.js')(app, passport)
 
-// set up app to listen for port
-var server = http.listen(80, function() {
-  console.log('meetApp running and listening on port ' + server.address().port + ' !')
-})
-
 // websocket config
-var ws = require('./config/ws')
-module.exports = server
+const server = http.createServer(app)
+const wss = new WebSocket.Server({ server })
+module.exports = wss
+const ws = require('./config/ws')
+
+// set up app to listen for port
+server.listen(80, function listening() {
+  console.log('Listening on %d', server.address().port)
+})
